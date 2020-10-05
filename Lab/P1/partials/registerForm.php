@@ -5,8 +5,13 @@
 		<legend>Datos básicos</legend>
 		<label for="nombre">Nombre</label>
 		<br/>
-		<input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $userName ?>"
-		 placeholder="Miguel Cervantes" />
+		<input type="text" name="name" class="item_requerid" size="20" maxlength="25" value="<?php print $name ?>"
+		 placeholder="Nombre" />
+		<br/>
+		<label for="surname">Apellido</label>
+		<br/>
+		<input type="text" name="surname" class="item_requerid" size="20" maxlength="25" value="<?php print $surname ?>"
+		 placeholder="Apellido" />
 		<br/>
 		<label for="email">Email</label>
 		<br/>
