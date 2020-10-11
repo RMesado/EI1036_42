@@ -14,6 +14,7 @@
  * */
 include(dirname(__FILE__)."/includes/pdo_postgres0.php");
 $central = "";
+global $pdo;
 include(dirname(__FILE__)."/partials/header.php");
 include(dirname(__FILE__)."/partials/menu.php");
 
@@ -77,6 +78,7 @@ switch ($action) {
 
         $table = "a_cliente";
         var_dump($_POST);
+        ejecutarSQL(NULL, NULL);
         handler( $pdo,$table);
         break;
     default:
