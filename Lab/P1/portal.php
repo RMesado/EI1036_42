@@ -53,7 +53,7 @@ switch ($action) {
         function handler($pdo,$table)
         {
             $datos = $_REQUEST;
-            if (count($_REQUEST) < 3) {
+            if (count($_REQUEST) < 6) {
                 $data["error"] = "No has rellenado el formulario correctamente";
                 return;
             }
