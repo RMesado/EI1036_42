@@ -78,7 +78,7 @@ switch ($action) {
 
         $table = "a_cliente";
         var_dump($_POST);
-        ejecutarSQL(NULL, NULL);
+        ejecutarSQL(NULL,NULL);
         handler( $pdo,$table);
         break;
     default:
