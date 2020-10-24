@@ -1,25 +1,21 @@
 <nav>
 	<ul>
 		<li>
-			<a href="./portal.php?action=home&nombre=usuario">Home</a>
+			<a href="./portal.php?action=home">Home</a>
 		</li>
 		<li>
-			<a href="crearTabla.php">CrearTabla</a>
+			<a href="?action=listar_productos">Productos</a>
 		</li>
+		<?php 
 		
-
-		<li>
-			<a href="?action=login">Autentificar</a>
-		</li>
-		<li>
-			<a href="?action=registro">Registro</a>
-		</li>
-
-		<li>
-			<a href="?action=listar">Listar</a>
-		</li>
-		<li>
-			<a href="./holaMundo.php">HolaMundo</a>
-		</li>
+		 if (!isset($_SESSION['usuario'])){
+			echo '<li><a href="?action=login">Autentificar</a></li>';
+			echo '<li><a href="?action=registrar_usuario">Registrarme</a></li>';
+		 }
+		elseif (isset($_SESSION['usuario']) and $_SESSION['usuario'] == 'admin')
+			echo '<li><a href="?action=registrar_producto">Registrar Producto</a></li>';
+		elseif (isset($_SESSION['usuario']))
+		    echo '<li><"<a href="?action=ver_cesta">Cesta de Compra</a></li>';
+        ?>
 	</ul>
 </nav>
