@@ -1,16 +1,14 @@
 <?php
 
-function table2html($table)
+include("./gestionBD.php");
+function handler($pdo,$table)
 {
-    global $pdo;
-
-    $query = "SELECT * FROM  $table;";
     
-    $rows = $pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-
+    $rows=consultar($pdo,$table);
+   
     if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
         print '<table><thead>';
-        foreach($rows[0] as $key => $value) {
+        foreach ( array_keys($rows[0])as $key) {
             echo "<th>", $key,"</th>";
         }
         print "</thead>";
@@ -22,9 +20,14 @@ function table2html($table)
             print "</tr>";
         }
         print "</table>";
-    } 
-    else
-        print "<h1> No hay resultados </h1>"; 
+    }
+}
+$table = "a_cliente";
+
+try{handler($pdo,$table);}
+catch (PDOException $e) {
+echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+exit;
 }
 
-?>
+    ?>
